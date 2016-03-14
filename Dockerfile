@@ -14,7 +14,8 @@ ENV SU_RVM      su - $RVM_USER -c
 # Dependencies for getting/building
 RUN apk update && \
     apk upgrade && \
-    apk add gcc gnupg curl ruby bash procps musl-dev make linux-headers && \
+    apk add gcc gnupg curl ruby bash procps musl-dev make linux-headers \
+        zlib zlib-dev openssl openssl-dev libssl1.0 && \
     gem install rake -N
 
 # User
