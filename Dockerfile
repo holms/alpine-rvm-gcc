@@ -1,7 +1,10 @@
 FROM alpine:3.5
 
+# Install bash
+RUN apk update && apk add bash && rm -rf /var/cache/apk/*
+RUN /bin/bash
 RUN apk update \
-  && apk add alpine-sdk gcc gnupg curl ruby bash procps musl-dev make linux-headers \
+  && apk add alpine-sdk gcc gnupg curl ruby procps musl-dev make linux-headers \
         zlib zlib-dev openssl openssl-dev libssl1.0 \
   && curl -sSL https://github.com/rvm/rvm/tarball/stable -o rvm-stable.tar.gz \
   && echo 'export rvm_prefix="$HOME"' > /root/.rvmrc \
@@ -9,7 +12,7 @@ RUN apk update \
   && mkdir rvm && cd rvm \
   && tar --strip-components=1 -xzf ../rvm-stable.tar.gz \
   && ./install --auto-dotfiles --autolibs=0 \
-  && cd ../ && rm -rf rvm-stable stable.tar.gz rvm 
+  && cd ../ && rm -rf rvm-stable stable.tar.gz rvm \ 
   && apk del alpine-sdk gcc gnupg musl-dev make linux-headers zlib-dev openssl-dev musl-dev \
   && rm -rf /var/cache/apk/*
 
