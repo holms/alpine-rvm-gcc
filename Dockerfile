@@ -1,11 +1,4 @@
-#
-# Unofficial alpine-rvm-gcc Dockerfile 
-#
-# https://github.com/nicdoye/alpine-rvm-gcc
-#
-
-# Pull base image
-FROM alpine:3.3
+FROM alpine:3.5
 
 ENV RVM_USER    rvm
 ENV RVM_GROUP   rvm
