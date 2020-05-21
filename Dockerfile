@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.8
 
 # Install bash
 RUN apk update && apk add bash && rm -rf /var/cache/apk/*
